@@ -1,0 +1,157 @@
+# Comments -> #, """ ,
+'''
+x = 10            # Integer
+y = 3.14          # Float
+z = "Hello"       # String
+a = True          # Boolean
+b = [1, 2, 3]     # List
+c = (4, 5, 6)     # Tuple
+d = {"key": "value"}  # Dictionary
+
+
+name = input("Enter your name: ")   # Takes input as a string
+print(f"Hello, {name}!")            # f-string for formatted output
+
+if x > 5:
+    print("x is greater than 5")
+elif x == 5:
+    print("x is equal to 5")
+else:
+    print("x is less than 5")
+
+
+for i in range(5):    # Loops from 0 to 4
+    print(i)
+
+for item in [1, 2, 3]:
+    print(item)
+
+
+count = 0
+while count < 5:
+    print(count)
+    count += 1
+
+def greet(name):
+    return f"Hello, {name}!"
+
+print(greet("Alice"))
+
+
+def fact(n):
+    if(n==1):
+        return 1
+    return n*fact(n-1)
+
+print(fact(5))
+
+
+class Person:
+    # constructor
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def introduce(self):
+        return f"My name is {self.name}, and I am {self.age} years old."
+
+
+p = Person("John", 30)
+print(p.introduce())
+
+
+
+print("List / array")
+lst = [1,2,3]
+lst.insert(0,5)
+lst.pop();
+for item in lst:
+    print(item)
+
+
+print("Tuple / Set")
+tpl = (1, 2, 3)
+for item in tpl:
+    print(item)
+
+print("Dictionary / Hashmap")
+dct = {"a": 1, "b": 2}
+for key,value in dct.items():
+    print(key, value)
+
+for key in dct:
+    print(dct[key])
+
+
+
+
+class k:
+    #No explicit access specifiers like private, protected, or public
+
+    Public: Normal attributes.
+    Protected: Prefix with a single underscore _var.
+    Private: Prefix with double underscores __var.
+
+    def __init__(self):
+        print("LOLL")
+
+    def thiswokrsihope(self):
+        print("LOLLXDD")
+
+
+class Base1:
+    def greet(self):
+        print("Hello from Base1")
+
+class Base2:
+    def greet(self):
+        print("Hello from Base2")
+
+class Derived(Base1,Base2):
+    def greet(self):
+        print("Hello from Derived")
+        Base1.greet(self);
+        Base2.greet(self); # because the method is not being called through an instance of the class but directly from the class itself. thus self is not automatically passed as an argument
+
+# Polymorphism
+for lol in [Base1(),Base2(),Derived()]:
+    lol.greet()
+
+
+# Operator overloading
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __sub__(self, other): # Python uses "magic methods" (also called dunder methods, for "double underscore") to override operators.
+        return Point(self.x + other.x, self.y + other.y)
+
+    def __str__(self):
+        return f"({self.x}, {self.y})"
+
+p1 = Point(1, 2)
+p2 = Point(3, 4)
+p3 = p1 - p2
+print(p3)  # Output: (4, 6)
+
+
+Static Method: No access to self or cls. Equivalent to static functions in C++.
+Class Method: Accesses the class, not the instance.
+
+# Static methods and members
+class Example:
+    count = 0
+
+    @classmethod
+    def increment(cls):
+        cls.count += 1
+
+    @staticmethod
+    def greet():
+        print("Hello!")
+
+Example.greet()
+Example.increment()
+print(Example.count)  # Output: 1
+'''

@@ -1,0 +1,68 @@
+<mainGrid>:
+    orientation: 'horizontal'  # Main BoxLayout's orientation is horizontal
+    size: 1000,1000
+
+
+    # Right GridLayout is empty
+    GridLayout:
+        id: right_grid
+        cols: 1  # One column, but no widgets inside
+        size: root.width/2, root.height
+        pos :root.x+500, root.y
+        canvas.before:
+            # Set background color (R, G, B, A)
+            Color:
+                rgba: 0.2, 0.6, 0.8, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        Label:
+            id:right_text_label
+            text: ""
+
+
+
+    # Left GridLayout for Select, Insert, etc.
+    GridLayout:
+        id: left_grid
+        cols: 1  # One column for vertically stacked widgets
+        size: root.width/2, root.height
+        pos :root.x, root.y
+        Button:
+            text: "Show All Databases"
+            on_press: root.databases_display_request(self)
+
+        GridLayout:
+            cols: 2  # Inner GridLayout with 2 columns for select and insert fields
+            Button:
+                text: "Select Database"
+                on_press: root.database_selection(self)
+            TextInput:
+                id: select_database_input
+                multiline: False
+
+            Button:
+                text: "Select Table"
+                on_press: root.table_selection(self)
+            TextInput:
+                id: select_table_input
+                multiline: False
+
+
+            Button:
+                text: "Insert Data"
+                on_press: root.data_insertion(self)
+            TextInput:
+                id: insert_data_input
+                multiline: False
+
+            Button:
+                text: "Delete Data"
+                on_press: root.data_deletion(self)
+            TextInput:
+                id: delete_data_input
+                multiline: False
+
+
+
+
